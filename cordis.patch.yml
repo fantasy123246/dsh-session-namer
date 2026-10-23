@@ -1,0 +1,33 @@
+# Bundle patch applied when `dsh-session-namer` joins `dsh.profile.bundles`.
+#
+# `@deepseek-ai/dsh-session-title` accepts exactly one title provider, and the
+# stock one is registered by the `session-title-llm` entry from `dsh-base`
+# (`@deepseek-ai/dsh-session-title-first-prompt-llm`). That provider names a
+# session from its first human message alone and its prompt tells the model to
+# answer "Greeting" when that message is phatic — which is where 「打招呼」 comes
+# from. It is disabled here so this bundle can register its own provider.
+- id: session-title-llm
+  disabled: true
+
+- insert:
+    - id: dsh-session-namer
+      name: dsh-session-namer
+      # Optional tuning. Every key falls back to the defaults documented in the
+      # README, and `provider`/`model` are only needed when the session has no
+      # logged request route yet.
+      #
+      # Widths are in display cells: a CJK character is 2, a Latin letter 1, so
+      # `targetTitleWidth: 16` means eight Chinese characters or sixteen letters.
+      #
+      # config:
+      #   targetTitleWidth: 16
+      #   maxTitleWidth: 24
+      #   maxInputBytes: 8192
+      #   maxOutputTokens: 1024
+      #   timeoutMs: 45000
+      #   maxRefinements: 4
+      #   refineGapMs: 120000
+      #   includeCwd: true
+      #   includeActivity: true
+      #   provider: your-provider
+      #   model: your-model
