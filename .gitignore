@@ -1,0 +1,15 @@
+# Never commit session logs, unpacked logs, or credentials.
+_eval/
+_real.jsonl
+*.jsonl
+*.zstd
+
+# Local scratch output from the diagnostic runs.
+_*.txt
+_*.json
+_*.mjs
+!tests/*.mjs
+
+node_modules/
+.DS_Store
+Thumbs.db
