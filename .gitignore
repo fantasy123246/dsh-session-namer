@@ -4,6 +4,11 @@ _real.jsonl
 *.jsonl
 *.zstd
 
+# End-to-end test that talks to a live gateway with local credentials.
+# It is functional but carries an account-specific endpoint and header set, so
+# it stays out of the published tree. The other tests run fully offline.
+tests/live.mjs
+
 # Local scratch output from the diagnostic runs.
 _*.txt
 _*.json
